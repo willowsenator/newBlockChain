@@ -2,9 +2,6 @@ import datetime
 import hashlib
 import json
 
-from flask import Flask, jsonify
-from flask_ngrok import run_with_ngrok
-
 
 # Blockchain creation
 
@@ -102,5 +99,3 @@ class BlockChain:
             previous_block = current_block
             block_index += 1
         return True
-
-
