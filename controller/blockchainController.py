@@ -1,12 +1,11 @@
-from flask import Flask, jsonify
+from flask import jsonify, Flask
 from flask_ngrok import run_with_ngrok
-
-from model.blockchain import BlockChain
-
-app = Flask(__name__)
-run_with_ngrok(app)
+from model.blockchainDTO import BlockChain
+from common.blockchainCommon import Common
 
 blockchain = BlockChain()
+app = Flask(__name__)
+run_with_ngrok(app)
 
 
 @app.route('/mine_block', methods=['GET'])
@@ -47,4 +46,4 @@ def is_valid():
     return jsonify(response), 200
 
 
-app.run()
+common = Common(app)
